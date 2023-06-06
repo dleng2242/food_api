@@ -1,4 +1,4 @@
-# import azure.functions as func
+
 from flask import Flask, request, jsonify
 import numpy as np
 
@@ -25,8 +25,8 @@ foods = [
 ]
 
 
-@app.route('/', methods=['GET'])
-def home():
+@app.route("/")
+def index():
     welcome_text = """
     <h1>My Food API</h1>
     <p>Welcome to my Food API. A flask API to return food suggestions.</p>
@@ -36,12 +36,12 @@ def home():
     """
     return welcome_text
 
-@app.route('/api/food/all', methods=['GET'])
+@app.route('/food/all', methods=['GET'])
 def api_all():
     return jsonify(foods)
 
 
-@app.route('/api/food', methods=['GET'])
+@app.route('/food', methods=['GET'])
 def api_query():
     if 'query' in request.args:
         query = request.args['query']
