@@ -6,11 +6,10 @@ Demo API that returns a meal suggestion given a type of food, e.g. "stew".
 The main aim of this repo is to build a REST API in python with Flask.
 
 
-A REST API allows other programs to interface in a structured way. 
-REST stands for representable state transfer. API stands for application
-interface. Often they are used to retrieve or update information stored
-in a database behind another application, but here the data is just stored
-in memory for now. 
+A REST APIs allow other programs to interface in a structured way
+and are very common. REST stands for representable state transfer.
+REST APIs are the standard way to interact with another application, 
+but here I just used to fetch data from my "app". 
 
 
 ## Quick Start
@@ -42,7 +41,6 @@ steps up to signing into Azure. For me the base URL was
 `http://127.0.0.1:7071`. 
 
 
-
 * Install azure functions Core Tools 
 * Install `azure-functions` to the conda environment (should already be in requirements.txt)
 * Run `func init` within the conda environment in the project folder
@@ -72,11 +70,12 @@ To build the docker image, first install Docker, and then run
 `docker build -t flask_docker .`. The `-t` means tag and specifies
 the "name:tag" of the image to build.
 You can then run the container using 
-`docker run -d -p 5000:5000 flask_docker`, where `-d` means development,
+`docker run -d -p 5000:5000 flask_docker`, where `-d` means detached,
 and the `-p` is used to define the ports. During development
 this was connecting the default flask port 5000 to 5000, but running
 through the Azure Functions sdk you might need to change it to `-p 7071:7071`
-or similar. You will need to change these if you were to productionise the app. 
+or similar. You will need to change these if you were to deploy the app in 
+a production environment. 
 
 
 ## Resources
