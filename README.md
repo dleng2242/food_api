@@ -6,10 +6,10 @@ Demo API that returns a meal suggestion given a type of food, e.g. "stew".
 The main aim of this repo is to build a REST API in python with Flask.
 
 
-A REST APIs allow other programs to interface in a structured way
-and are very common. REST stands for representable state transfer.
-REST APIs are the standard way to interact with another application, 
-but here I just used to fetch data from my "app". 
+A REST APIs allow other programs to interface in a structured way and are very 
+common. REST stands for representable state transfer. REST APIs are the 
+standard way to interact with another application, but here I just used to 
+fetch data from my "app".
 
 
 ## Quick Start
