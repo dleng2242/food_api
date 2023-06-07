@@ -3,13 +3,11 @@
 
 Demo API that returns a meal suggestion given a type of food, e.g. "stew". 
 
-The main aim of this repo is to build a REST API in python with Flask.
+The aim of this repo is to build a demo REST API in python with Flask.
 
 
-A REST APIs allow other programs to interface in a structured way and are very 
-common. REST stands for representable state transfer. REST APIs are the 
-standard way to interact with another application, but here I just used to 
-fetch data from my "app".
+A REST API provides a structured interface for other programs to 
+interact with your app. Here it is used to fetch meal suggestions.
 
 
 ## Quick start
@@ -60,7 +58,7 @@ You can request a meal idea using the following format
 The number argument is optional, defaulting to returning one item. 
 Putting the number 0 will return all food items of that food type.
 
-For example, you could run:
+For example, using the python `requests` library, you could run:
 * `requests.get(BASE + "/food/stew")` - to get one stew suggestion
 * `requests.get(BASE + "/food/stew/2")` - to get two stew suggestions
 * `requests.get(BASE + "/food/stew/0")` - to see all available stews in the data
@@ -69,7 +67,7 @@ You can also add or delete data:
 * `requests.put(BASE + "/food/stew", data={"food_item": "lentil stew"})`
 * `requests.delete(BASE + "/food/stew", data={"food_item": "lentil stew"})`
 
-Check out the `tests/test.py` file for more examples. 
+Check out the `demo.py` file for more examples. 
 
 
 ## Deploy with Azure Functions
