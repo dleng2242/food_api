@@ -68,7 +68,7 @@ class Food(Resource):
             random_food = foods[food_type]
         else:
             abort(400, message="Number provided was not a valid input...")
-        return {"data": f"Food: {random_food}"}
+        return {"data": f"{random_food}"}
 
     def put(self, food_type):
         args = food_put_parser.parse_args()
