@@ -12,7 +12,48 @@ standard way to interact with another application, but here I just used to
 fetch data from my "app".
 
 
-## Quick Start
+## Quick start
+
+To install and test locally, first clone this repo and then create a 
+virtual environment of your choosing. Install the packages from the 
+`requirements.txt` and then install the app locally in development mode. 
+
+For me on windows, I created a conda virtual environnement using 
+`conda create --name foodapi_env python==3.10`
+activated it `conda activate foodapi_env`, and then installed the packages
+using `pip install -r .\requirements.txt`. 
+
+I then installed the FoodApi package locally using 
+` pip install -e .`. 
+
+To run the API on windows, set the `FLASK_APP` and `FLASK_ENV` environment 
+variables and run `flask run`. Make sure you are in the virtual environment.
+
+For windows CMD run:
+```CMD
+set FLASK_APP=FoodApi
+set FLASK_ENV=development
+flask run
+```
+
+For windows PowerShell run:
+```CMD
+$env:FLASK_APP = 'FoodApi'
+$env:FLASK_ENV = "development"
+flask run
+```
+
+## Tests
+
+To run the tests, first install the app as above. 
+
+You can then run `pytest .` in the project root to run the tests. 
+
+You can also run with code coverage with `coverage run -m pytest`, 
+and then generate the report with `coverage report`.
+
+
+## API Guide
 
 You can request a meal idea using the following format
 `<base url>/food/<food type>/<number>`.
@@ -31,22 +72,19 @@ You can also add or delete data:
 Check out the `tests/test.py` file for more examples. 
 
 
-## Steps to deploy
+## Deploy with Azure Functions
 
 This was deployed using Azure Functions.
 
-You can clone and run locally if desired. Create a virtual environment 
-and install the packages from the requirements.txt and follow the below
-steps up to signing into Azure. For me the base URL was 
-`http://127.0.0.1:7071`. 
+Clone the repo, create a virtual environment, install the packages from the 
+`requirements.txt` and follow the below steps. 
 
-
-* Install azure functions Core Tools 
+* Make sure [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-the-azure-functions-core-tools) are installed 
 * Install `azure-functions` to the conda environment (should already be in requirements.txt)
 * Run `func init` within the conda environment in the project folder
-* Check the http routePrefix extension is in the `host.json`
+* Check the http `routePrefix` extension is in the `host.json`
 * Check you have get, put, delete, and/or post in the methods defined in `functions.json`
-* Run `func start` to first run locally
+* Run `func start` to first run locally - check everything is working
 * Sign into Azure in VS Code
 * Create the functions app from VS Code as in the docs below
     * Read [Quickstart: Create a function in Azure with Python using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-python?pivots=python-mode-configuration)
@@ -63,8 +101,8 @@ steps up to signing into Azure. For me the base URL was
 
 ## Notes
 
-You could use Docker to deploy but wasn't needed here. It is left for 
-interest or if you want to test it yourself. 
+You could use Docker to deploy but wasn't needed here. The Dockerfile is left
+for interest only.
 
 To build the docker image, first install Docker, and then run
 `docker build -t flask_docker .`. The `-t` means tag and specifies
@@ -86,5 +124,5 @@ a production environment.
 * [Using Flask Framework with Azure Functions Sample](https://learn.microsoft.com/en-us/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/)
 * [Work with Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash)
 * [Quickstart: Create a function in Azure with Python using Visual Studio Code](https://learn.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-python?pivots=python-mode-configuration)
-
+* [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Cwindows%2Ccsharp%2Cportal%2Cbash#install-the-azure-functions-core-tools)
 
