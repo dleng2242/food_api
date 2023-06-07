@@ -1,8 +1,7 @@
 import requests
 
-# BASE = "http://127.0.0.1:5000"
-# BASE = "http://127.0.0.1:7071"
-BASE = "https://duncans-food-api.azurewebsites.net"
+# Update your base URL, e.g. "http://127.0.0.1:5000", or if deployed "https://<function>.azurewebsites.net"
+BASE = "http://127.0.0.1:5000"
 
 # check basic usage - returns two soups
 response = requests.get(BASE + "/food/soup/2")
